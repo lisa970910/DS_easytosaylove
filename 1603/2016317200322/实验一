@@ -1,0 +1,68 @@
+#include<iostream>
+#include<cstdio>
+#include<cstring>
+#include<cmath>
+#include<algorithm>
+#include<vector>
+#include<queue>
+#include<map>
+#define LL long long
+#define MAXN 1000010
+using namespace std;
+const int INF=0x3f3f3f3f;
+int A[222],B[222];
+int vis[MAXN];
+int main()
+{
+    int m,n,i,j;
+    while(scanf("%d",&m)!=EOF)
+    {
+        memset(vis,0,sizeof(vis));
+        for(i=0;i<m;i++)
+        {
+            scanf("%d",&A[i]);
+            vis[A[i]]=1;
+        }
+        scanf("%d",&n);
+        for(i=0;i<n;i++)
+        {
+            scanf("%d",&B[i]);
+        }
+        printf("%d",A[0]);
+        for(j=1;j<m;j++)
+        {
+            printf(" %d",A[j]);
+        }
+        printf("\n");
+        printf("%d",B[0]);
+        for(j=1;j<n;j++)
+        {
+            printf(" %d",B[j]);
+        }
+        printf("\n");
+        for(i=0;i<n;i++)
+        {
+            if(!vis[B[i]])
+            {
+                A[m++]=B[i];
+                printf("%d",A[0]);
+                for(j=1;j<m;j++)
+                {
+                    printf(" %d",A[j]);
+                }
+                printf("\n");
+            }
+            else
+            {
+                printf("%d",A[0]);
+                for(j=1;j<m;j++)
+                {
+                    printf(" %d",A[j]);
+                }
+                printf("\n");
+            }
+        }
+        printf("\n");
+    }
+    return 0;
+}
